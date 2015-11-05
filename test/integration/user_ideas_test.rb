@@ -14,7 +14,7 @@ class UserIdeasTest < ActionDispatch::IntegrationTest
     click_link 'Create Idea'
     fill_in "Title", with: "Project Idea"
     fill_in "Body", with: "Make an Idea Box"
-    click_button "Create Idea"
+    click_button "Submit"
 
     assert page.has_content?("Project Idea")
     assert page.has_content?("Make an Idea Box")
@@ -33,6 +33,6 @@ class UserIdeasTest < ActionDispatch::IntegrationTest
   end
 
   test 'user can delete idea' do
-    skip
+
   end
 end
