@@ -1,0 +1,12 @@
+<%= flash[:notice] %>
+<%= flash[:error] %>
+
+Welcome, <%= current_user.username %>
+
+<ul>
+<% @ideas.each do |idea| %>
+  <li> <%= link_to idea.title, idea_path(idea) %> </li>
+<% end %>
+</ul>
+
+<%= link_to "Create Idea", new_idea_path %>
