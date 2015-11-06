@@ -11,14 +11,17 @@ class UserIdeasTest < ActionDispatch::IntegrationTest
   end
 
   def create_idea
+    Category.create(name: 'Code')
     Idea.create(title: 'Some title', body: 'Some body', user_id: @user.id)
     visit ideas_path
   end
 
   test 'user_can_create_idea' do
+    Category.create(name: 'Code')
     click_link 'Create Idea'
     fill_in "Title", with: "Project Idea"
     fill_in "Body", with: "Make an Idea Box"
+    select 'Code', from: 'idea[category_id]'
     click_button "Submit"
 
     assert page.has_content?("Project Idea")
@@ -31,6 +34,7 @@ class UserIdeasTest < ActionDispatch::IntegrationTest
     click_link 'Edit'
     fill_in 'Title', with: 'New Title'
     fill_in 'Body', with: 'New body'
+    select 'Code', from: 'idea[category_id]'
     click_button 'Submit'
 
     assert page.has_content? 'New Title'
