@@ -20,18 +20,40 @@ class AdminCategoryTest < ActionDispatch::IntegrationTest
   end
 
   test 'admin can view category index' do
-    skip
-  end
+    create_admin
+    Category.create(name: 'NewCategory1')
+    Category.create(name: 'NewCategory2')
+    ApplicationController.any_instance.stubs(:current_user).returns(@admin)
+    visit admin_categories_path
 
-  test 'admin can get to show' do
-    skip
+    assert page.has_content? 'NewCategory1'
+    assert page.has_content? 'NewCategory2'
   end
 
   test 'admin can edit category' do
-    skip
+    create_admin
+    Category.create(name: 'NewCategory')
+    ApplicationController.any_instance.stubs(:current_user).returns(@admin)
+    visit admin_categories_path
+    within '#NewCategory' do
+      click_link 'Edit'
+    end
+    fill_in 'Name', with: 'EditedCategory'
+    click_button 'Update Category'
+
+    assert_equal admin_categories_path, current_path
+    assert page.has_content? 'EditedCategory'
   end
 
   test 'admin can delete category' do
-    skip
+    create_admin
+    Category.create(name: 'NewCategory')
+    ApplicationController.any_instance.stubs(:current_user).returns(@admin)
+    visit admin_categories_path
+    within '#NewCategory' do
+      click_link 'Delete'
+    end
+
+    refute page.has_content? 'NewCategory'
   end
 end
