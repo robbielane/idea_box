@@ -42,6 +42,20 @@ class AdminImageTest < ActionDispatch::IntegrationTest
   end
 
   test 'admin can delete image' do
-    skip
+    create_admin
+    ApplicationController.any_instance.stubs(:current_user).returns(@admin)
+
+    visit admin_images_path
+    click_link 'Add Image'
+    fill_in 'Name', with: 'Funny Picture'
+    fill_in 'Link', with: 'Newimagelink.com'
+    click_button 'Create Image'
+
+    visit admin_images_path
+    click_link 'Funny Picture'
+    click_link 'Delete'
+
+    assert_equal admin_images_path, current_path
+    refute page.has_content? 'Funny Picture'
   end
 end
