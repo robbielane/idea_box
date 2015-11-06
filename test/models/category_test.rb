@@ -1,7 +1,15 @@
 require 'test_helper'
 
 class CategoryTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test "category is valid" do
+    category = Category.new(name: 'CategoryName')
+
+    assert category.valid?
+  end
+
+  test 'category must have a name' do
+    category = Category.new({})
+
+    refute category.valid?
+  end
 end

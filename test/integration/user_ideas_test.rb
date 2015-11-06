@@ -10,6 +10,11 @@ class UserIdeasTest < ActionDispatch::IntegrationTest
     click_button "Login"
   end
 
+  def create_idea
+    Idea.create(title: 'Some title', body: 'Some body', user_id: @user.id)
+    visit ideas_path
+  end
+
   test 'user_can_create_idea' do
     click_link 'Create Idea'
     fill_in "Title", with: "Project Idea"
@@ -21,18 +26,24 @@ class UserIdeasTest < ActionDispatch::IntegrationTest
   end
 
   test 'user can edit idea' do
-    skip
-    Idea.create(title: 'Some title', body: 'Some body', user_id: @user.id)
+    create_idea
     click_link 'Some title'
+    click_link 'Edit'
     fill_in 'Title', with: 'New Title'
     fill_in 'Body', with: 'New body'
-    click_button 'Update Idea'
+    click_button 'Submit'
 
     assert page.has_content? 'New Title'
     assert page.has_content? 'New body'
   end
 
   test 'user can delete idea' do
+    create_idea
+    click_link 'Some title'
+    click_link 'Delete'
 
+    assert_equal ideas_path, current_path
+    refute page.has_content? 'Some title'
+    refute page.has_content? 'Some body'
   end
 end

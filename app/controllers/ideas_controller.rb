@@ -1,5 +1,6 @@
 class IdeasController < ApplicationController
   before_action :set_user
+  before_action :set_idea, only: [:show, :destroy, :edit, :update]
 
   def index
     @ideas = @user.ideas
@@ -21,22 +22,18 @@ class IdeasController < ApplicationController
   end
 
   def show
-    @idea = Idea.find(params[:id])
   end
 
   def destroy
-    @idea = @user.ideas.find(params[:id])
     @idea.destroy
     flash[:notice] = "Successfully deleted idea"
     redirect_to ideas_path
   end
 
   def edit
-    @idea = Idea.find(params[:id])
   end
 
   def update
-    @idea = Idea.find(params[:id])
     if @idea.update(idea_params)
       flash[:notice] = "Successfully updated idea!"
       redirect_to @idea
@@ -50,6 +47,10 @@ class IdeasController < ApplicationController
 
   def set_user
     @user = User.find(session[:user_id])
+  end
+
+  def set_idea
+    @idea = Idea.find(params[:id])
   end
 
   def idea_params
