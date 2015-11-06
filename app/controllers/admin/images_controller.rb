@@ -1,5 +1,4 @@
 class Admin::ImagesController < Admin::BaseController
-  before_action :set_image, only: [:show, :destroy, :edit, :update]
 
   def index
     @images = Image.all
@@ -21,15 +20,18 @@ class Admin::ImagesController < Admin::BaseController
   end
 
   def show
+    @image = Image.find(params[:id])
   end
 
   def edit
+    @image = Image.find(params[:id])
   end
 
   def update
+    @image = Image.find(params[:id])
     if @image.update(image_params)
       flash[:notice] = "Successfully updated image!"
-      redirect_to @image
+      redirect_to admin_image_path(@image)
      else
       flash[:error] = @image.errors.full_messages.join(', ')
       render :edit
@@ -42,9 +44,4 @@ class Admin::ImagesController < Admin::BaseController
   def image_params
     params.require(:image).permit(:name, :link)
   end
-
-  def set_image
-    @image = Image.find(params[:id])
-  end
-
 end

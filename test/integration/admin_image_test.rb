@@ -38,8 +38,7 @@ class AdminImageTest < ActionDispatch::IntegrationTest
     fill_in 'Link', with: 'New link'
     click_button 'Submit'
 
-    assert page.has_content? 'New Title'
-    assert page.has_content? 'New body'
+    assert page.has_content? 'New Name'
   end
 
   test 'admin can delete image' do
