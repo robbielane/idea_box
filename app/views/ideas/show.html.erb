@@ -1,4 +1,14 @@
 <h3><%= @idea.title %></h3>
+
+<div>
+  <% @idea.images.each do |image| %>
+    <img src="<%=image.link%>" alt='<%= image.name %>' class='idea_image z-depth-3'/>
+  <% end %>
+</div>
+
 <p> <%= @idea.body %></p>
-<%= link_to 'Edit', edit_idea_path(@idea) %>
-<%= link_to 'Delete', idea_path(@idea), method: :delete %>
+
+<%= link_to 'Add Image', new_idea_image_path(@idea), class: 'btn blue' %>
+<%= link_to 'Edit', edit_idea_path(@idea), class: 'btn orange'%>
+<%= link_to 'Delete', idea_path(@idea), method: :delete, class: 'btn red' %>
+<br><br>
