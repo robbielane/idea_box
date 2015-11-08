@@ -1,6 +1,14 @@
-<h3>New Category</h3>
-<%= form_for @category, url: admin_categories_path do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <%= f.submit 'Create Category' %>
-<% end %>
+<div class="row">
+  <div class="col m6 offset-m3 s12 card z-depth-3 pushdown">
+    <div class="login">
+      <h1 class="green-text center">New Category</h1>
+      <p class="strong center red-text animated shake"><%= flash[:error] %></p>
+      <%= flash[:notice] %>
+      <%= form_for @category, url: admin_categories_path do |f| %>
+        <%= f.label :name %>
+        <%= f.text_field :name, class: 'black-text'%>
+        <%= f.submit 'Create Category', class: 'btn green darken-2' %>
+      <% end %>
+    </div>
+  </div>
+</div>

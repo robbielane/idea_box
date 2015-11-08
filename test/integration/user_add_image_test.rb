@@ -29,14 +29,13 @@ class UserAddImageTest < ActionDispatch::IntegrationTest
     image_two =  Image.create(name: "Funnier Picture", link:"dkfjasdfgh.com")
 
     visit idea_path(idea)
-    save_and_open_page
 
     click_link "Add Image"
     click_link "Funny Picture"
 
     click_link "Add Image"
     click_link "Funnier Picture"
-    
+
     assert page.has_selector?("img[src$='#{image_one.link}']")
     assert page.has_selector?("img[src$='#{image_two.link}']")
   end

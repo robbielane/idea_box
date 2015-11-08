@@ -1,20 +1,26 @@
-<h1>All Categories</h1>
-
-<ul>
-<% @categories.each do |category| %>
-  <li id="<%= category.name %>"> <%= link_to category.name, admin_category_path(category) %> |
-                                 <%= link_to 'Edit', edit_admin_category_path(category) %> |
-                                 <%= link_to 'Delete', admin_category_path(category), method: :delete %></li>
-<% end %>
-</ul>
+<div class="row">
+  <div class="col m6 offset-m3 s12 card z-depth-3 pushdown">
+    <div class="login">
+      <h1 class="green-text center">All Categories</h1>
+      <table class='bordered'>
+        <thead class="black-text">
+          <tr>
+            <th>Name</th>
+            <th colspan="2"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @categories.each do |category| %>
+          <tr id="<%= category.name %>">
+            <td> <%= link_to category.name, admin_category_path(category) %></td>
+            <td><%= link_to 'Edit', edit_admin_category_path(category), class: 'btn btn-small orange' %></td>
+            <td><%= link_to 'Delete', admin_category_path(category), method: :delete, class: 'btn btn-small red' %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
 
 <%= link_to 'Add Category', new_admin_category_path %>
-
-
-
-# To Do:
-
-  # Finish Category
-  # Integrate Categories with Ideas
-  # Images
-  # Views/ Pretty
