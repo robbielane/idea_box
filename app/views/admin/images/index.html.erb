@@ -1,9 +1,12 @@
 <h1>All Images</h1>
 
-<ul>
-<% @images.each do |image| %>
-  <li> <%= link_to image.name, admin_image_path(image) %> </li>
-<% end %>
-</ul>
+<div class="row">
+  <% @images.each do |image| %>
+    <div class="index_images col s3">
+      <%= link_to image.name, admin_image_path(image) %>
+      <%= link_to image_tag(image.link), admin_image_path(image) %>
+    </div>
+  <% end %>
+</div>
 
-<%= link_to 'Add Image', new_admin_image_path %>
+<%= link_to 'Add Image', new_admin_image_path, class: 'btn green darken-2' %>

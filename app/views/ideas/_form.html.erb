@@ -6,5 +6,5 @@
   <%= f.text_area :body %><br>
   <%= f.label :category_id, "Catgegory" %>
   <%= f.collection_select :category_id, Category.all, :id, :name, {}, {class: 'browser-default'}%><br>
-  <%= f.submit "Submit", class: 'btn' %>
+  <%= f.submit "Submit", class: 'btn green darken-2' %>
 <% end %>

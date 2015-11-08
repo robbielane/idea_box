@@ -16,6 +16,73 @@
 
 @import "materialize";
 
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Material Icons'), local('MaterialIcons-Regular'), url(http://fonts.gstatic.com/s/materialicons/v7/2fcrYFNaTjcS6g4U3t-Y5ZjZjT5FdEJ140U2DJYC3mY.woff2) format('woff2');
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  word-wrap: normal;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+}
+
+.animated {
+  -webkit-animation-duration: .5s;
+  animation-duration: .5s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@-webkit-keyframes shake {
+  from, to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+
+  15%, 45%, 75% {
+    -webkit-transform: translate3d(-10px, 0, 0);
+    transform: translate3d(-10px, 0, 0);
+  }
+
+  30%, 60%, 90% {
+    -webkit-transform: translate3d(10px, 0, 0);
+    transform: translate3d(10px, 0, 0);
+  }
+}
+
+@keyframes shake {
+  from, to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+
+  15%, 45%, 75% {
+    -webkit-transform: translate3d(-10px, 0, 0);
+    transform: translate3d(-10px, 0, 0);
+  }
+
+  30%, 60%, 90% {
+    -webkit-transform: translate3d(10px, 0, 0);
+    transform: translate3d(10px, 0, 0);
+  }
+}
+
+.shake {
+  -webkit-animation-name: shake;
+  animation-name: shake;
+}
+
 h1 {
   font-size: 30px;
   font-weight: 700;
@@ -23,6 +90,10 @@ h1 {
 
 h3 {
   font-weight: 500;
+}
+
+a {
+  color: #1b5e20;
 }
 
 .idea {
@@ -33,4 +104,39 @@ h3 {
 
 .idea_image {
   max-width: 100%;
+}
+
+.strong {
+  font-weight: 700;
+}
+
+.index_images {
+  margin-top: 25px;
+  text-align: center;
+}
+
+.index_images img {
+  max-width: 256px;
+  max-height: 256px;
+}
+
+.pushdown {
+  margin-top: 75px;
+}
+
+.login {
+  padding: 0 25px 25px 25px;
+}
+
+.card .card-action a {
+  color: green;
+  font-weight: 600;
+}
+
+.pad-idea {
+  padding: 0 25px 25px 25px;
+}
+
+.pad-idea form textarea {
+  height: 150px;
 }

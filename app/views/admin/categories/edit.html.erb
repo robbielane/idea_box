@@ -1,6 +1,14 @@
-<h3>Edit Category</h3>
-<%= form_for @category, url: admin_category_path(params[:id]) do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <%= f.submit 'Update Category' %>
-<% end %>
+<div class="row">
+  <div class="col m6 offset-m3 s12 card z-depth-3 pushdown">
+    <div class="login">
+      <h1 class="green-text center">Update Category</h1>
+      <p class="strong center red-text animated shake"><%= flash[:error] %></p>
+      <%= flash[:notice] %>
+      <%= form_for @category, url: admin_category_path do |f| %>
+        <%= f.label :name %>
+        <%= f.text_field :name, class: 'black-text'%>
+        <%= f.submit 'Update Category', class: 'btn green darken-2' %>
+      <% end %>
+    </div>
+  </div>
+</div>
