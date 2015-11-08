@@ -12,8 +12,8 @@
       <%= link_to 'Idea Box', root_path, class: 'brand-logo' %>
       <ul class="right">
         <% if current_admin? %>
-          <li><%= link_to 'Add Image', new_admin_image_path %></li>
-          <li><%= link_to 'Add Category', new_admin_category_path %></li>
+          <li><%= link_to 'Add New Image', new_admin_image_path %></li>
+          <li><%= link_to 'Add New Category', new_admin_category_path %></li>
         <% end %>
 
         <% if current_user %>
