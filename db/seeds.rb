@@ -1,6 +1,6 @@
 User.create!([
-  {username: "robbie", password_digest: "$2a$10$Tfgz.nQqvxdMXEnMXAPQFOmd5Y68VjgF.Dq4hJMS.xPr5F.ylGbzy", role: 1},
-  {username: "peter", password_digest: "$2a$10$s6Z.SgJuf9KrBlLNbU1sX.02qrMvM094iCzEKFoyO9ZHEw0MHX96W", role: nil}
+  {username: "robbie", password: 'password', role: 1},
+  {username: "peter", password: 'password', role: nil}
 ])
 Category.create!([
   {name: "Code"},
