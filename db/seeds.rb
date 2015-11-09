@@ -1,9 +1,21 @@
+User.create!([
+  {username: "robbie", password_digest: "$2a$10$Tfgz.nQqvxdMXEnMXAPQFOmd5Y68VjgF.Dq4hJMS.xPr5F.ylGbzy", role: 1},
+  {username: "peter", password_digest: "$2a$10$s6Z.SgJuf9KrBlLNbU1sX.02qrMvM094iCzEKFoyO9ZHEw0MHX96W", role: nil}
+])
 Category.create!([
   {name: "Code"},
   {name: "Ruby"},
   {name: "Rails"},
   {name: "Something"},
   {name: "blah"}
+])
+Image.create!([
+  {name: "Sunset", link: "http://robbielane.net/works/sandybeach/photos/SandyBeech1.jpg"},
+  {name: "iceland", link: "http://robbielane.net/works/iceland/photos/Iceland3.jpg"},
+  {name: "ice cave", link: "http://robbielane.net/works/icecave/photos/IceCave1.jpg"},
+  {name: "Sunflower", link: "http://robbielane.net/prints/OneOfMany/OneOfMany.jpg"},
+  {name: "Columbia River", link: "http://robbielane.net/prints/ColumbiaGorge/ColumbiaGorge.jpg"},
+  {name: "Haines", link: "http://robbielane.net/works/haines/photos/HainesTananiPoint.jpg"}
 ])
 Idea.create!([
   {title: "Title", body: "Body", user_id: 1, category_id: nil},
@@ -30,16 +42,4 @@ IdeasImage.create!([
   {image_id: 14, idea_id: 11},
   {image_id: 13, idea_id: 13},
   {image_id: 13, idea_id: 14}
-])
-Image.create!([
-  {name: "Sunset", link: "http://robbielane.net/works/sandybeach/photos/SandyBeech1.jpg"},
-  {name: "iceland", link: "http://robbielane.net/works/iceland/photos/Iceland3.jpg"},
-  {name: "ice cave", link: "http://robbielane.net/works/icecave/photos/IceCave1.jpg"},
-  {name: "Sunflower", link: "http://robbielane.net/prints/OneOfMany/OneOfMany.jpg"},
-  {name: "Columbia River", link: "http://robbielane.net/prints/ColumbiaGorge/ColumbiaGorge.jpg"},
-  {name: "Haines", link: "http://robbielane.net/works/haines/photos/HainesTananiPoint.jpg"}
-])
-User.create!([
-  {username: "robbie", password_digest: "$2a$10$Tfgz.nQqvxdMXEnMXAPQFOmd5Y68VjgF.Dq4hJMS.xPr5F.ylGbzy", role: 1},
-  {username: "peter", password_digest: "$2a$10$s6Z.SgJuf9KrBlLNbU1sX.02qrMvM094iCzEKFoyO9ZHEw0MHX96W", role: nil}
 ])

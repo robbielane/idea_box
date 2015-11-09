@@ -21,7 +21,7 @@ class IdeasShowTest < ActionDispatch::IntegrationTest
   test 'user sees ideas listed on index' do
     create_user
     create_idea
-    within '.idea' do
+    within '.card-title' do
       assert page.has_content?("Some title")
     end
   end
