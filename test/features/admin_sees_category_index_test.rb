@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class AdminCategoriesTest < ActionDispatch::IntegrationTest
+class AdminCategoryViewIndexTest < ActionDispatch::IntegrationTest
   test 'logged in admin sees categories index' do
     admin = User.create(username: "admin",
                         password: "password",
